@@ -100,31 +100,5 @@
   </section>
 
   <audio id="bdaySong" src="bday.mp3" autoplay loop></audio>
-
-  <script>
-    // Ask for notification permission at start
-    if ("Notification" in window && Notification.permission !== "granted") {
-      Notification.requestPermission();
-    }
-
-    let triggered = false;
-
-    window.addEventListener("scroll", () => {
-      if (!triggered && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
-        triggered = true;
-
-        // Show notification
-        if (Notification.permission === "granted") {
-          new Notification("🎉You made it! Redirecting in 10 seconds...");
-        }
-
-        // After 10 seconds redirect
-        setTimeout(() => {
-          window.location.href = "https://example.com"; // <-- change link
-        }, 10000);
-      }
-    });
-  </script>
-
 </body>
 </html>
